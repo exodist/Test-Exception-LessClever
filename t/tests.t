@@ -8,12 +8,12 @@ use Object::Quick qw/obj method/;
 
 our $CLASS;
 
-
 BEGIN {
     test_out( 'ok 1 - use Test::Exception::LessClever;' );
     $CLASS = 'Test::Exception::LessClever';
     use_ok( $CLASS, qw/lives_ok dies_ok throws_ok lives_and live_or_die/ );
 }
+ my $program = quotemeta($0);
 
 test_out( "not ok 2 - dies_ok fail" );
 test_fail(+1);
@@ -76,7 +76,7 @@ like( $msg, qr/did not die/, "Got msg" );
         qr/
             code \s died \s as \s expected, \s however \s the \s error \s is \s
             masked\. \s This \s can \s occur \s when \s an \s object's \s
-            DESTROY\(\) \s method \s calls \s eval \s at \s $0
+            DESTROY\(\) \s method \s calls \s eval \s at \s $program
         /x,
         "Warn of edge case"
     );
@@ -102,7 +102,7 @@ like( $msg, qr/did not die/, "Got msg" );
         qr/
             code \s died \s as \s expected, \s however \s the \s error \s is \s
             masked\. \s This \s can \s occur \s when \s an \s object's \s
-            DESTROY\(\) \s method \s calls \s eval \s at \s $0
+            DESTROY\(\) \s method \s calls \s eval \s at \s $program
         /x,
         "Warn of edge case"
     );
