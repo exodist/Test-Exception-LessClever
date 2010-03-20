@@ -33,7 +33,7 @@ test_fail(+2);
 test_err( "# t/tests.t line 34:\n#   Wanted: (?-xism:YYY)\n#   Got: XXX at t/tests.t line 34." );
 throws_ok { die "XXX" } qr/YYY/, "throws_ok error doesn't match";
 
-test_err( "# Test unexpectedly died: 'xxx at t/tests.t line 39.' at t/tests.t line 39." );
+test_err( "# Test unexpectedly died: 'xxx at $0 line 39.' at $0 line 39." );
 test_out( "not ok 6 - did not live to test" );
 test_fail(+1);
 lives_and { die 'xxx' } "did not live to test";
