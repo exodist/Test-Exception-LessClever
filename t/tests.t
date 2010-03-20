@@ -30,7 +30,7 @@ throws_ok { 1 } qr/xxx/, "throws_ok doesn't die";
 
 test_out( "not ok 5 - throws_ok error doesn't match" );
 test_fail(+2);
-test_err( "# t/tests.t line 34:\n#   Wanted: (?-xism:YYY)\n#   Got: XXX at t/tests.t line 34." );
+test_err( "# $0 line 34:\n#   Wanted: (?-xism:YYY)\n#   Got: XXX at $0 line 34." );
 throws_ok { die "XXX" } qr/YYY/, "throws_ok error doesn't match";
 
 test_err( "# Test unexpectedly died: 'xxx at $0 line 39.' at $0 line 39." );
