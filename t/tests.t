@@ -60,7 +60,10 @@ ok( $ret, "Registered a live" );
 ok( $ret, "Registered a live" );
 like( $msg, qr/did not die/, "Got msg" );
 
-{
+if ( $^V and $^V ge '5.13.0' ) {
+    note( "Perl version $^V does not suffer from die in eval edge case, skipping..." );
+}
+else {
     my @warn;
     local $SIG{ __WARN__ } = sub { push @warn => @_ };
 
