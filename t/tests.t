@@ -38,6 +38,25 @@ test_out( "not ok 6 - did not live to test" );
 test_fail(+1);
 lives_and { die 'xxx' } "did not live to test";
 
+# Test for false positives
+use Carp;
+
+# If you switch the confess() to a die() via $show_stacktrace - the test will
+# pass as expected
+my $show_stacktrace = 1;
+sub unexpected_throw {
+  my $err = 'I will instead confess something completely random';
+  $show_stacktrace ? confess ($err) : die ($err);
+};
+
+test_fail(+1); my $tline = __LINE__ + 1;
+throws_ok { unexpected_throw ('expected shiny exception') } qr/shiny/, "throws_ok confessed error doesn't match";
+my $err = substr ($@, 0, -1); # chomp confess newline
+
+test_err( "# $0 line $tline:", '#   Wanted: (?-xism:shiny)' );
+test_err( map { "# $_" } (split ("\n", "  Got: $err" ) ) );
+test_out( "not ok 7 - throws_ok confessed error doesn't match" );
+
 test_test "Test output was as desired";
 
 ######
