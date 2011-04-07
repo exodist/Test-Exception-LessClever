@@ -57,7 +57,7 @@ our @EXPORT_OK = qw/live_or_die/;
 our @EXPORT = qw/lives_ok dies_ok throws_ok lives_and/;
 our @CARP_NOT = ( __PACKAGE__ );
 our $TB = Test::Builder->new;
-our $VERSION = "0.005";
+our $VERSION = "0.006";
 
 =item $status = live_or_die( sub { ... }, $name )
 

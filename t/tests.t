@@ -4,7 +4,7 @@ use warnings;
 
 use Test::Builder::Tester;
 use Test::More;
-use Object::Quick qw/obj method/;
+use Mock::Quick qw/qobj qmeth/;
 
 our $CLASS;
 
@@ -29,11 +29,16 @@ test_fail(+1);
 throws_ok { 1 } qr/xxx/, "throws_ok doesn't die";
 
 test_out( "not ok 5 - throws_ok error doesn't match" );
-test_fail(+2);
-test_err( "# $0 line 34:\n#   Wanted: (?-xism:YYY)\n#   Got: XXX at $0 line 34." );
+test_fail(+7);
+if ( $^V and $^V ge '5.13.6' ) {
+    test_err( "# $0 line 39:\n#   Wanted: (?^:YYY)\n#   Got: XXX at $0 line 39." );
+}
+else {
+    test_err( "# $0 line 39:\n#   Wanted: (?-xism:YYY)\n#   Got: XXX at $0 line 39." );
+}
 throws_ok { die "XXX" } qr/YYY/, "throws_ok error doesn't match";
 
-test_err( "# Test unexpectedly died: 'xxx at $0 line 39.' at $0 line 39." );
+test_err( "# Test unexpectedly died: 'xxx at $0 line 44.' at $0 line 44." );
 test_out( "not ok 6 - did not live to test" );
 test_fail(+1);
 lives_and { die 'xxx' } "did not live to test";
@@ -68,7 +73,7 @@ else {
     local $SIG{ __WARN__ } = sub { push @warn => @_ };
 
     ($ret, $error) = live_or_die( sub {
-        my $obj = obj( DESTROY => method { eval { 1 }} );
+        my $obj = qobj( DESTROY => qmeth { eval { 1 }} );
         die( 'apple' );
         $obj->x;
     });
@@ -86,7 +91,7 @@ else {
 
     @warn = ();
     $ret = live_or_die( sub {
-        my $obj = obj( DESTROY => method { eval { 1 }} );
+        my $obj = qobj( DESTROY => qmeth { eval { 1 }} );
         die( 'apple' );
         $obj->x;
     });
@@ -95,7 +100,7 @@ else {
 
     @warn = ();
     throws_ok {
-        my $obj = obj( DESTROY => method { eval { 1 }} );
+        my $obj = qobj( DESTROY => qmeth { eval { 1 }} );
         die( 'xxx' );
         $obj->x;
     } qr/^$/, "Throw edge case";

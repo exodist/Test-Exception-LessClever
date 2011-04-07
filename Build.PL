@@ -15,7 +15,7 @@ my $build = Module::Build->new(
     },
     build_requires => {
         'Test::Simple' => 0.88,
-        'Object::Quick' => '0.012',
+        'Mock::Quick' => '1.100',
     },
 );
 
