@@ -17,6 +17,11 @@ my $build = Module::Build->new(
         'Test::Simple' => 0.88,
         'Mock::Quick' => '1.100',
     },
+    meta_merge => {
+        resources => {
+            repository => 'https://github.com/exodist/Test-Exception-LessClever',
+        },
+    },
 );
 
 $build->create_build_script;
