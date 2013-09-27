@@ -154,7 +154,7 @@ sub throws_ok(&$;$) {
 =item lives_and( sub {...}, $name )
 
 Fails with $name if the sub dies, otherwise is passive. This is useful for
-running a test that could die. If it dies there is a failure, fi ti lives it is
+running a test that could die. If it dies there is a failure, if it lives it is
 responsible for itself.
 
 =cut
