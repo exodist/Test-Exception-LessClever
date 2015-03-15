@@ -18,8 +18,17 @@ my $build = Module::Build->new(
         'Mock::Quick' => '1.100',
     },
     meta_merge => {
+        'meta-spec' => { version => 2 },
+        dynamic_config => 0,
         resources => {
-            repository => 'https://github.com/exodist/Test-Exception-LessClever',
+            repository => {
+                url => 'https://github.com/exodist/Test-Exception-LessClever.git',
+                web => 'https://github.com/exodist/Test-Exception-LessClever',
+                type => 'git',
+            },
+            bugtracker => {
+                web => 'https://github.com/exodist/Test-Exception-LessClever/issues',
+            },
         },
     },
 );
