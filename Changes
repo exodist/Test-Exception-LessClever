@@ -1,0 +1,5 @@
+Revision history for Test-Exception-LessClever
+
+0.007 - ...
+    - formally deprecate this distribution; refer to Test::Exception and
+      Test::Fatal as the more appropriate alternatives
