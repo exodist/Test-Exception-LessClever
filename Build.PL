@@ -21,6 +21,9 @@ my $build = Module::Build->new(
         resources => {
             repository => 'https://github.com/exodist/Test-Exception-LessClever',
         },
+        'meta-spec' => { version => 2 },
+        dynamic_config => 0,
+        x_deprecated => 1,
     },
 );
 

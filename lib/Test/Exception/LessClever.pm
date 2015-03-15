@@ -10,40 +10,21 @@ use Carp qw/carp/;
 
 =head1 NAME
 
-Test::Exception::LessClever - Test::Exception simplified
+Test::Exception::LessClever - (DEPRECATED) Test::Exception simplified
 
 =head1 DESCRIPTION
 
 An alternative to L<Test::Exception> that is much simpler. This alternative
 does not use fancy stack tricks to hide itself. The idea here is to keep it
-simple. This also solves the Test::Exception bug where some dies will be hidden
+simple. This also solves an ol Test::Exception bug (now fixed) where some dies will be hidden
 when a DESTROY method calls eval. If a DESTROY method masks $@ a warning will
 be generated as well.
 
-=head1 WHY REWRITE TEST-EXCEPTION
+=head1 DEPRECATION NOTICE
 
-Here is an IRC log.
-
-    <Exodist> wtf? Bizarre copy of HASH in sassign at /usr/lib64/perl5/5.10.1/Carp/Heavy.pm line 104
-    <Exodist> hmm, it doesn't happen when I step through the debugger, that sure is helpful yessir
-    <Exodist> hmm, throws_ok or dies_ok { stuff that croaks in a package used by the one being tested }, at least in this case causes that error. If I change it to eval {}; ok( $@ ); like( $@, qr// ); it works fine
-    <Exodist> Ah-Ha,   earlier when I mentioned I stopped using throws_ok because of something I could not remember, this was it, I stumbled on it again!
-    <confound> probably because throws_ok tries to do clever things to fiddle with the call stack to make it appear as though its guts are not being called
-    <confound> less clever would be more useful
-
-=head1 SYNOPSYS
-
-Pretty much a clone of L<Test::Exception> Refer to those docs for more details.
-
-    use Test::More;
-    use Test::Exception;
-
-    dies_ok { die( 'xxx' )} "Should die";
-    lives_ok { 1 } "Should live";
-    throws_ok { die( 'xxx' )} qr/xxx/, "Throws 'xxx'";
-    lives_and { ok( 1, "We did not die" )} "Ooops we died";
-
-    done_testing;
+The time where it was advantageous to use this module over L<Test::Exception>
+has now passed.  You should either switch to that, or use L<Test::Fatal>,
+which takes a more minimal approach with the interface.
 
 =head1 EXPORTABLE FUNCTIONS
 
@@ -178,7 +159,17 @@ __END__
 
 =head1 SEE ALSO
 
+=over 4
+
+=item *
+
 L<Test::Exception>
+
+=item *
+
+L<Test::Fatal>
+
+=back
 
 =head1 AUTHORS
 
