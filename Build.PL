@@ -30,6 +30,7 @@ my $build = Module::Build->new(
                 web => 'https://github.com/exodist/Test-Exception-LessClever/issues',
             },
         },
+        x_deprecated => 1,
     },
 );
 
