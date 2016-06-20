@@ -10,9 +10,11 @@ use Carp qw/carp/;
 
 =head1 NAME
 
-Test::Exception::LessClever - Test::Exception simplified
+Test::Exception::LessClever - Test::Exception simplified ***DEPRECATED***
 
 =head1 DESCRIPTION
+
+*** This is deprecated please do not use it ***
 
 An alternative to L<Test::Exception> that is much simpler. This alternative
 does not use fancy stack tricks to hide itself. The idea here is to keep it
@@ -57,7 +59,7 @@ our @EXPORT_OK = qw/live_or_die/;
 our @EXPORT = qw/lives_ok dies_ok throws_ok lives_and/;
 our @CARP_NOT = ( __PACKAGE__ );
 our $TB = Test::Builder->new;
-our $VERSION = "0.006";
+our $VERSION = "0.007";
 
 =item $status = live_or_die( sub { ... }, $name )
 
