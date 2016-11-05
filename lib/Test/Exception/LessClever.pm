@@ -180,7 +180,17 @@ __END__
 
 =head1 SEE ALSO
 
+=over 4
+
+=item *
+
+L<Test::Fatal>
+
+=item *
+
 L<Test::Exception>
+
+=back
 
 =head1 AUTHORS
 
