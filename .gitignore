@@ -1,0 +1,12 @@
+/MANIFEST.bak
+/META.*
+/MYMETA.*
+/Makefile
+/Makefile.old
+/blib/
+/pm_to_blib
+/Test-Exception-LessClever-*/
+/Test-Exception-LessClever-*.tar.gz
+/cover_db/
+/_eumm/
+/MANIFEST.SKIP.bak
