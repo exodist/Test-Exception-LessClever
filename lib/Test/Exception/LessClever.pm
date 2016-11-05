@@ -10,11 +10,11 @@ use Carp qw/carp/;
 
 =head1 NAME
 
-Test::Exception::LessClever - Test::Exception simplified ***(DEPRECATED)***
+Test::Exception::LessClever - (DEPRECATED) Test::Exception simplified
 
-=head1 DESCRIPTION
+=head1 DEPRECATION NOTICE
 
-*** This is deprecated please do not use it ***
+*** This module is deprecated: please do not use it! ***
 
 An alternative to L<Test::Exception> that is much simpler. This alternative
 does not use fancy stack tricks to hide itself. The idea here is to keep it
@@ -33,7 +33,7 @@ Here is an IRC log.
     <confound> probably because throws_ok tries to do clever things to fiddle with the call stack to make it appear as though its guts are not being called
     <confound> less clever would be more useful
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
 Pretty much a clone of L<Test::Exception> Refer to those docs for more details.
 
