@@ -61,6 +61,8 @@ our @CARP_NOT = ( __PACKAGE__ );
 our $TB = Test::Builder->new;
 our $VERSION = "0.009";
 
+warnings::warnif('deprecated', '!!! Test::Exception::LessClever is deprecated');
+
 =item $status = live_or_die( sub { ... }, $name )
 
 =item ($status, $msg) = live_or_die( sub { ... }, $name )

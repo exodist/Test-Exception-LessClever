@@ -2,3 +2,4 @@ Revision history for Test-Exception-LessClever
 
 0.009    ...
         - switched from Module::Build to ExtUtils::MakeMaker
+        - added deprecation warning when module is loaded
