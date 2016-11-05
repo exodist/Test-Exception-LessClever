@@ -10,7 +10,7 @@ use Carp qw/carp/;
 
 =head1 NAME
 
-Test::Exception::LessClever - Test::Exception simplified ***DEPRECATED***
+Test::Exception::LessClever - Test::Exception simplified ***(DEPRECATED)***
 
 =head1 DESCRIPTION
 
