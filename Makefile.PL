@@ -19,7 +19,14 @@ my %WriteMakefileArgs = (
         web => 'https://github.com/exodist/Test-Exception-LessClever',
         type => 'git',
       },
+      homepage => 'https://github.com/exodist/Test-Exception-LessClever',
+      bugtracker => {
+        web => 'https://github.com/exodist/Test-Exception-LessClever/issues',
+      },
     },
+    x_IRC => 'irc://irc.perl.org/#perl-qa',
+    x_MailingList => 'http://lists.perl.org/list/perl-qa.html',
+    x_authority => 'cpan:EXODIST',
     x_deprecated => 1,
   },
 
@@ -36,12 +43,17 @@ my %WriteMakefileArgs = (
           'Carp'                    => '0',
           'Exporter'                => '0',
           'Test::Builder'           => '0',
+          'base'                    => '0',
+          'strict'                  => '0',
+          'warnings'                => '0',
+          'perl'                    => '5.006',
         },
       },
       test => {
         requires => {
           'Mock::Quick'             => '1.100',
-          'Test::Simple'            => '0.88',
+          'Test::Builder::Tester'   => '0',
+          'Test::More'              => '0.88',
         },
       },
     },
