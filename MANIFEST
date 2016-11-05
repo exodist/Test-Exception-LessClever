@@ -1,0 +1,7 @@
+Build.PL
+lib/Test/Exception/LessClever.pm
+MANIFEST			This list of files
+README
+t/tests.t
+META.yml
+META.json

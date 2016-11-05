@@ -1,0 +1,30 @@
+---
+abstract: 'Test::Exception simplified ***(DEPRECATED)***'
+author:
+  - 'Chad Granum <exodist7@gmail.com>'
+build_requires:
+  Mock::Quick: '1.100'
+  Test::Simple: '0.88'
+configure_requires:
+  Module::Build: '0.42'
+dynamic_config: 1
+generated_by: 'Module::Build version 0.422, CPAN::Meta::Converter version 2.150010'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Test-Exception-LessClever
+provides:
+  Test::Exception::LessClever:
+    file: lib/Test/Exception/LessClever.pm
+    version: '0.008'
+requires:
+  Carp: '0'
+  Exporter: '0'
+  Test::Builder: '0'
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: https://github.com/exodist/Test-Exception-LessClever
+version: '0.008'
+x_deprecated: 1
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
